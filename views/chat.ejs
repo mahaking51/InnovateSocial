@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Chat</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      <link rel="icon" href="https://img.icons8.com/color/50/000000/innovation.png">
+
+      <script src="https://use.fontawesome.com/02a41567fe.js"></script>
+      <style>
+          body{
+              background-color: #f7f7f7;
+          }
+        #onlinet{
+          width:50%;
+        }
+        #online{
+          margin-bottom: 1.5rem;;
+        }
+        input{
+          margin-top: 1.2rem;;
+          width:93%;
+          margin-right: auto;
+          border-radius:1rem;
+          border:0;
+          height:1.5rem;
+          padding: 1.2rem;;
+        }
+        #box{
+            border: solid 1px #dddddd;
+            background-color: #e1f2fb;
+            padding:1.2rem;
+        }
+        
+        .chat-container {
+            border: solid 1px #dddddd;
+
+    position: relative;
+    padding: 1rem;
+    background-color: #e1f2fb;
+    /* margin-top: 3%; */
+}
+#send{
+    border-radius: 1rem;
+    margin-left: 1rem;
+}
+
+.chat-container li.chat-left,
+.chat-container li.chat-right {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    margin-bottom: 40px;
+}
+
+.chat-container li img {
+    width: 48px;
+    height: 48px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+}
+
+.chat-container li .chat-avatar {
+    margin-right: 20px;
+}
+
+.chat-container li.chat-right {
+    justify-content: flex-end;
+}
+
+.chat-container li.chat-right > .chat-avatar {
+    margin-left: 20px;
+    margin-right: 0;
+}
+
+.chat-container li .chat-name {
+    font-size: .75rem;
+    color: #999999;
+    text-align: center;
+}
+
+.chat-container li .chat-text {
+    padding: .4rem 1rem;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    background: #ffffff;
+    font-weight: 300;
+    line-height: 150%;
+    position: relative;
+}
+
+.chat-container li .chat-text:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 10px;
+    left: -20px;
+    border: 10px solid;
+    border-color: transparent #ffffff transparent transparent;
+}
+
+.chat-container li.chat-right > .chat-text {
+    text-align: right;
+}
+
+.chat-container li.chat-right > .chat-text:before {
+    right: -20px;
+    border-color: transparent transparent transparent #ffffff;
+    left: inherit;
+}
+
+.chat-container li .chat-hour {
+    padding: 0;
+    margin-bottom: 10px;
+    font-size: .75rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 0 15px;
+}
+
+.chat-container li .chat-hour > span {
+    font-size: 16px;
+    color: #9ec94a;
+}
+
+.chat-container li.chat-right > .chat-hour {
+    margin: 0 15px 0 0;
+}
+#head{
+    padding:1.2rem;
+    margin-top:2rem;
+    background-color:#e1f2fb ;
+    padding-left: 2rem;;
+
+}
+      </style>
+   </head>
+   
+   <body>
+    <!-- <div class="row"> -->
+    <div class='container' id='head'>
+        <h3 id='title'></h3>
+        <h5 id='admin' style='display:inline'></h5>
+        <div class="chat-name" id='members' style='display:inline'></div>
+
+    </div>
+    <div class="chat-container container \" style="overflow-y:scroll; overflow-x:hidden; height:600px;">
+        <ul class="chat-box chatContainerScroll" id='chats'>
+            <%for (var i=0;i<history.length;i++){%>
+                <%if((history[i].roomid==id)){%>
+                    <%if(!(history[i].user===user)){%>
+                        <li class="chat-left">
+                            <div class="chat-avatar">
+                                <img src="https://ui-avatars.com/api/?name=<%=history[i].user%>&rounded=true&bold=true&size=128&background=dedef0&color=9656a1" alt="Retail Admin">
+                                <div class="chat-name"><%=history[i].user%></div>
+                            </div>
+                            <div class="chat-text"><%=history[i].message%></div>
+                            <div class="chat-hour"><%=history[i].time%><span class="fa fa-check-circle"></span></div>
+                        </li>
+                    <%}%>
+                    <% if(history[i].user===user){%>
+                        <li class="chat-right">
+                            <div class="chat-hour"><%=history[i].time%> <span class="fa fa-check-circle"></span></div>
+                            <div class="chat-text"><%=history[i].message%></div>
+                            <div class="chat-avatar">
+                                <img src="https://ui-avatars.com/api/?name=<%=history[i].user%>&rounded=true&bold=true&size=128&background=f3dfe3&color=f0134d" alt="Retail Admin">
+                                <div class="chat-name"><%=history[i].user%></div>
+                            </div>
+                        </li>
+                    <%}%>
+                <%}%>
+            <%}%>
+           
+         
+            </ul>
+            
+    </div>
+</div>
+    <div class='container' id='box'>
+        <form action="" method="post">
+            <input type="text" id='msg' placeholder="Message">
+            <button class='btn btn-primary'id='send' value='<%=id%>,<%=user%>'><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+          </form>
+    </div>
+   </body>
+   <script src = "/socket.io/socket.io.js"></script>
+   <script>
+        var socket = io();
+        var test=document.getElementById('onlinet');
+        var date=new Date();
+        let time=date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        let d=date.toLocaleDateString('en-GB');
+       window.onload=function(){
+        a=document.getElementById('send').value.split(',');
+        id=a[0];
+        name=a[1];
+        console.log(id);
+        socket.emit('joinChat',{id:id});
+        socket.on('roomConnection',function(data){
+            document.getElementById('title').innerHTML=data.title;
+            document.getElementById('members').innerHTML=data.members;
+            document.getElementById('admin').innerHTML=data.admin+',';
+        })
+        document.getElementById('send').addEventListener('click',function(e){
+            e.preventDefault();
+
+            if(document.getElementById('msg').value!=''){
+            socket.emit('chat',{user:name,message:document.getElementById('msg').value,id:id,time:time,date:d});
+            text='<li class="chat-right">\
+                            <div class="chat-hour">'+time+'</div>\
+                            <div class="chat-text">'+document.getElementById('msg').value+'</div>\
+                            <div class="chat-avatar">\
+                                <img src="https://ui-avatars.com/api/?name='+name+'&rounded=true&bold=true&size=128&background=f3dfe3&color=f0134d" alt="Retail Admin">\
+                                <div class="chat-name">'+name+'</div>\
+                            </div>\
+                        </li>'
+            document.getElementById('chats').innerHTML+=text;
+            document.getElementById('msg').value=''
+            }
+            
+
+        })
+        socket.on('other',function(data){
+    text='<li class="chat-left">\
+                            <div class="chat-avatar">\
+                                <img src="https://ui-avatars.com/api/?name='+data.user+'&rounded=true&bold=true&size=128&background=dedef0&color=9656a1" alt="Retail Admin">\
+                                <div class="chat-name">'+data.user+'</div>\
+                            </div>\
+                            <div class="chat-text">'+data.message+'</div>\
+                            <div class="chat-hour">'+time+' </div>\
+                        </li>'
+    document.getElementById('chats').innerHTML+=text;
+      document.getElementById('msg').value=''
+        })
+
+       }
+
+   </script>
+   </html>

@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=name%></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="icon" href="https://img.icons8.com/color/50/000000/innovation.png">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+body{
+    background-color: #f7f7f7;
+}
+.sidebar{
+    display: inline;
+    width:20%;
+    border-style: solid;
+    border-radius: 0.5rem;;
+    border-color: #dbdbdb;
+
+}
+.sidebarOptions{
+    display:block;
+    /* height:20%; */
+    padding:0.75rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    /* margin-top: 1.2rem;
+    margin-bottom: 1.2rem; */
+}
+.sidebarOptions:hover{
+    background-color: #e4e4e4;
+    cursor:pointer;
+}
+#sideContent{
+    display: inline;
+    padding:2%;
+    border-style: solid;
+    border-radius: 0.5rem;;
+    border-color: #dbdbdb;
+}
+h1{
+    text-align: center;
+}
+h2{
+    text-align: center;
+}
+
+#dp{
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+#main{
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top:1.5rem;
+    height:100%;
+
+}
+.dashboard{
+margin-left: 3rem;;
+margin-right: 3rem;;
+
+}
+#profilePic{
+    display: block;
+    margin:auto;
+    margin-bottom: 1.5rem;;
+}
+#follow{
+    margin-left:25%;
+    margin-top: 2rem;
+    width:50%;
+    text-align: center;
+}
+h3{
+    font-weight: 300;
+}
+h4{
+    font-weight: 400;
+}
+#userPic{
+    margin-left: 28%;
+    margin-bottom: 1.2rem;;
+}
+#mode{
+    display: inline;
+    margin-left: 75%;
+    margin-right: 1.2rem;
+    cursor: pointer;
+}
+a{
+    font-size: 1.2rem;
+}
+#home{
+    margin-left:40%;
+
+}
+#editProfile{
+    margin-left:30%;
+    border-color: #dbdbdb;
+}
+#header{
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+}
+#newArticle{
+    margin-top: 4rem;;
+}
+
+.dark-mode {
+  background-color:#323232;
+  color: #a7e9af;
+}
+#new{
+    width:50%;
+    margin:auto;
+    margin-top: 4rem;;
+
+}
+.dark-mode .sidebarOptions:hover{
+    background-color: #232020;
+    cursor:pointer;
+}
+ .dark-mode hr{
+    border-color: black;
+}
+.dark-mode li{
+    border-color: black;
+    background-color: #323232;
+
+}
+.dark-mode textarea{
+    background-color: #323232;
+ 
+}
+.dark-mode #editProfile{
+    background-color: #323232;
+    border-color: #3797a4;
+    color:#3797a4;
+    font-weight: 500;
+}
+.dark-mode #editProfile:hover{
+    background-color: #3797a4;
+    border-color: #3797a4;
+    color:white;
+    font-weight: 500;
+}
+.dark-mode #newArticle{
+    background-color: #323232;
+    border-color: black;
+
+}
+.dark-mode #newArticle:hover{
+    background-color: #232020;
+    border-color: black;
+}
+.dark-mode input{
+    background-color: #323232;
+
+}
+#left{
+    min-height: 750px;
+}
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #3e8e41;
+}
+#myInput {
+  background-position: 14px 12px;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  padding: 14px 20px 12px 45px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  border-radius: 0.5rem;
+}
+
+#myInput:focus {outline: 3px solid #ddd;}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f6f6f6;
+  min-width: 230px;
+  overflow: auto;
+  border: 1px solid #ddd;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.btn-warning{
+    margin-top: 1.2rem;
+}
+#pop ,.follow{
+    position: absolute;
+    z-index: 3;
+    width:40%;
+    margin-left:39%;
+    margin-top:1.2rem;
+    text-align: center;
+}
+#calendar_basic{
+    margin-top:5rem;
+    border:solid #c9d1d3 0.01rem;
+    border-radius: 0.25rem;
+    padding: 2rem;;
+    
+}
+#myInput:focus {outline: 3px solid #ddd;}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f6f6f6;
+  min-width: 230px;
+  overflow: auto;
+  border: 1px solid #ddd;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.btn-danger{
+    margin-top: 1.2rem;
+    margin-left: 1rem;
+}
+
+
+    </style>
+    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+
+</head>
+<body>
+   
+    <section id='main' >
+        <div class="alert alert-success container" style="display: none;" id='pop'role="alert">
+            <h4>Changes Have been submitted</h4>
+        </div>
+        <div class="alert alert-primary follow" style="display: none;" id='pop1' role="alert">
+           
+        </div>
+    <div class="row dashboard">
+        <div class='container sidebar col-3 ' id='left'>
+            <div class='container'id='dp'>
+                <img src="<%=url%>" alt="" id='userPic'>
+                <h1 id='nameHead'><%=name%></h1> 
+                <a id='home' href="/home/<%=name%>" rel="external" data-theme="c">Home</a>
+            </div>
+            <div class="mode">
+                <p id='desc' style="text-align: center;">Write something about yourself</p>
+                <%if(!condfollow){%>
+                    <button class="btn btn-light" id='editProfile'>Edit Profile</button>
+                <%}%>
+            </div>
+            <hr>
+            <div class='container sidebarOptions' id='task1'><h3 id='taskh1'>Profile</h3></div>
+            <hr>
+            <%if(!condfollow){%>
+            <div class='container sidebarOptions' id='task2'><h3 id='taskh2'>Manage ur Projects</h3></div>
+            <hr>
+            <div class='container sidebarOptions' id='task3'><h3 id='taskh3'>Notifications</h3></div>
+            <hr>
+            <div class='container sidebarOptions' id='task4'><h3 id='taskh4'>Log Out</h3></div>
+            <%}%>
+        </div>
+        <div class='container-lg col-9 Task1' id='sideContent' style='overflow-y: auto; overflow-x: hidden; padding-left: 0;'>
+            <%if(!condfollow){%>
+            <div class="container" id="profileDetails">
+                <div class="dropdown">
+                    <div id="myDropdown" class="dropdown-content" style="display: block;">
+                      <input type="text" placeholder="🔍Search for users" id="myInput" >
+                      <div id='res'>
+                    </div>
+                    </div>
+                  </div>
+                  <%}%>
+
+                <h1 id='myuser'><%=name%></h1>
+                <table id="follow">
+                    <tr>
+                        <td><h5>Followers</h5></td>
+                        <td><h5>Following</h5></td>
+                    </tr>
+                    <tr>
+                        <td id='followers'></td>
+                        <td id='followings'></td>
+                    </tr>
+                </table>
+                <%if(!condfollow){%>
+                <button class='btn btn-block btn-primary' id='newProject' style='margin-top: 1.5rem; width:70%; margin-left:auto; margin-right: auto;'><i class="fas fa-pencil-alt fa-fw mr-2"></i>Start a new Project</button>
+                <%}%>
+                <%if(condfollow){%>    
+                <form action="" method='post'>
+                <button class='btn btn-block btn-primary' id='new' name='submit' type='submit' value='<%=user%>,<%=name%>'>Follow</button>
+                </form>
+                <%}%>
+                <div class='container' style="margin-top: 2rem;">
+                    <h4>Recent Activities:</h4>
+                    <div id="calendar_basic" style="width: 900px; height: 350px; "></div>
+                </div>
+                </div>
+            <div class="container" id='createProject' style='display: none;'>
+                <a href=""> <h4 style='display: inline;'> < back </h4> </a>
+                <h1>Enter your project Details</h1>
+                    <form action='/publish' method='post'>
+                    <input type="text" class='form-control'placeholder="Title of the Project" id='header' name='heading' required>
+                    <textarea class="form-control" id="exampleFormControlTextarea-1" rows="10" placeholder="content" name='content' required></textarea>
+                    <button class='btn btn-success' style='margin-top: 1.2rem;'type="submit" name='submit' value='<%=name%>'>Publish</button>
+                    <script>
+                        CKEDITOR.replace( 'exampleFormControlTextarea-1' );
+                    </script>
+                </form>
+            </div>
+        </div>
+        <div class='container-lg col-9 Edit' id='sideContent' style='overflow-y: auto; overflow-x: hidden; display: none;'>
+            <h2>Edit your personal info</h2>
+            <form action="" method="post" style="margin-top: 3rem;">
+                <h4>This will be visible for other users</h4>
+                <div class="form-group">
+                    <textarea class="form-control" id="description" rows="3" required></textarea>
+                    <button class="btn btn-primary" id='editprofilebut' style="margin-top: 1.8rem;">Save Changes</button>
+                </div>    
+            </form>
+        </div>
+        <div class='container-lg col-9 Task2' id='sideContent' style='display:none; overflow-y: auto; overflow-x: hidden;min-height: 750px;'>
+            <h1>Your Projects</h1>
+            <ul class="list-group"></ul>
+            <%var det=0;%>
+            <%var admindet=0;%>
+            <%for(var i=0;i<projects.length;i++){%>
+                <%if(projects[i].members.includes(name) && projects[i].complete==='progress'){%>
+                <li class="list-group-item"><h4 style="display: inline;"><%=projects[i].title%></h4><p id='admin<%=det%>' style='display: inline;'>- <%=projects[i].admin%></p>  
+                    <button class='btn btn-success float-right btncont' id='btn<%=det%>' style="padding: .375rem .75rem;" >Make Contribution</button><a href="/chat/<%=projects[i]._id%>/<%=name%>"><button class="btn btn-primary float-right"  id='groupChat' style="margin-right:1.2rem"><i class="fas fa-comments"></i> Discussion</button></a>
+                    <div class="container" id='cont<%=det%>'style='margin-top: 1.2rem; display: none;'>
+                        <form action="" method="post">
+                        <input type="text" placeholder="heading" class="form-control" style="margin-bottom:1.2 rem" id='headSug<%=det%>'>
+                        <textarea name="content" class='form-control' id="exampleFormControlTextarea<%=det%>"  rows="10" required style="margin-top: 1.2rem;">    
+                        </textarea>
+                        <button class="btn btn-warning" id='subCont<%=det%>' value='<%=projects[i]._id%>,<%=projects[i].contribution.length%>'>Submit</button>
+                        <button class="btn btn-danger" type='button' data-toggle="modal" data-target="#exampleModal<%=det%>"  >Leave</button>
+                        </form>
+                        </div>
+                </li>
+                <div class="modal fade" id="exampleModal<%=det%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          Do you want to leave the team <%=projects[i].title%>?<br>
+                          By clicking yes, you will not be the part of the team
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary" id='leavebut<%=det%>' value="<%=projects[i]._id%>">Yes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <%det++%>
+                <%}%>
+                <%if(projects[i].admin===name && projects[i].complete==='progress'){%>
+                    <li class="list-group-item"><h4 style="display: inline;"><%=projects[i].title%></h4><p id='admin<%=admindet%>' style='display: inline;'>- <%=projects[i].admin%></p><button class='btn-success float-right btnAdminCont' id='adminbtn<%=admindet%>' style="padding:0.375rem 0.75rem; border-radius: 0.25rem;"> Edit Project</button><a href="/report/<%=projects[i]._id%>/true/<%=name%>" target><button class="btn btn-primary float-right" id='groupChat' style="margin-right:1.2rem">Show Project Report</button></a>
+                        <div class="container" id='admincont<%=admindet%>'style='margin-top: 1.2rem; display: none;'>
+                            <form action="" method="post">
+                            <div id='proj'>
+                            <input type="text" placeholder="heading" class="form-control adInput" style="margin-top:1.2rem;margin-bottom: 1.2rem;" id='inputadmin<%=admindet%>'>
+
+                            <textarea name="content" class='form-control adArea' id="adminFormControlTextarea<%=admindet%>"  rows="10" required style="margin-top: 1.2rem;">    
+                            </textarea>
+                            </div>
+                            <button class="btn btn-warning" id='subAdminCont<%=admindet%>' value='<%=projects[i]._id%>,<%=projects[i].contribution.length%>'>Submit</button>
+                            </form>
+                            <a href="/chat/<%=projects[i]._id%>/<%=name%>"><button class="btn btn-primary " id='groupChat' style="margin-top:1.2rem">Group Discussion</button></a>
+                            
+                            </div>
+                            <script>
+                                CKEDITOR.replace( 'adminFormControlTextarea<%=admindet%>' );
+                            </script>
+                    </li>
+                    <%admindet++%>
+                    <%}%>
+            <%}%>           
+        </div>
+        <div class='container-lg col-9 Task3' id='sideContent' style='display:none;' >
+            <h1 style="margin-top: 2rem;margin-bottom: 4rem;">Notifications </h1>
+            <ul class="list-group" id='notification'>
+                <%var det=0;%>
+                <%for(var i=0;i<projects.length;i++){%>
+                    <%if(projects[i].admin===name){%>
+                        <%for(var j=0;j<projects[i].contribution.length;j++){%>
+                        <li class="list-group-item" style='margin-top: 1.5rem;'>An Idea from <%=projects[i].contribution[j].name%> for <h5 style='display:inline;'><%=projects[i].title%></h5><button class="btn btn-primary float-right viewBtn" id='view<%=det%>'>view</button>
+                        <div class="container" id='idea<%=det%>' style="display: none;">
+                            <%=projects[i].contribution[j].content%>
+                        </div>
+                        <div class='container' id='form<%=det%>' class="form-control" style="display: none; margin-top:1.5rem">
+                            <form action="" method="post">
+                            <input type="text" placeholder="heading" class="form-control " style="margin-top:1.2rem;margin-bottom: 1.2rem;" id='inputSugg<%=det%>' value='<%=projects[i].contribution[j].heading%>'>
+                            <textarea name="FormControlTextarea<%=det%>" id="" rows="10" id='FormControlTextarea<%=det%>'></textarea>
+                            <button class="btn btn-success" style="display: inline; margin-top: 1.5rem; margin-right: 1.2rem;" id='acc<%=det%>' value='<%=projects[i]._id%>,<%=projects[i].contribution[j].name%>,<%=projects[i].contribution[j].num%>'>Accept</button><button class="btn btn-danger
+                            " style="display: inline; margin-top: 1.5rem;"id='dec<%=det%>' value='decline'>Decline</button>
+                            </form>
+                        </div>
+                            <script>
+                                CKEDITOR.replace( 'FormControlTextarea<%=det%>' );
+                            </script>
+                        </li>
+                        <%det++;%>
+                        <%}%>
+                    <%}%>
+                <%}%>
+            </ul>       
+        </div>
+    </div>
+    </section>
+</body>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src = "/socket.io/socket.io.js"></script>
+<script >
+    var socket = io();
+    lenCont=document.getElementsByClassName('btncont').length;
+    lenAdminCont=document.getElementsByClassName('btnAdminCont').length;
+    usern=document.getElementById('myuser').innerHTML;
+    lenView=document.getElementsByClassName('viewBtn').length;
+    d=[]
+    var n=0;
+
+
+    socket.emit('chart',usern);
+    socket.on('chartData',function(data){
+        for(var i=0;i<data.length;i++){
+            a=[new Date(data[i].date),data[i].num]
+            d.push(a);
+        }
+    })
+    //charts google
+    google.charts.load("current", {packages:["calendar"]});
+      google.charts.setOnLoadCallback(drawChart);
+
+   function drawChart() {
+       var dataTable = new google.visualization.DataTable();
+       dataTable.addColumn({ type: 'date', id: 'Date' });
+       dataTable.addColumn({ type: 'number', id: 'contributions' });
+       dataTable.addRows(
+          d
+        );
+
+       var chart = new google.visualization.Calendar(document.getElementById('calendar_basic'));
+
+       var options = {
+         title: "Contributions",
+         height: 200,
+         noDataPattern: {
+           backgroundColor: '#ffffff',
+           color: '#ffffff'
+         },
+         colorAxis:{
+            colors:['white','#33cc33','#009933','#003300'],
+            minValue:0,
+            maxValue:5
+         },
+         calendar: {
+            cellColor: {
+            stroke: 'grey',     // Color the border of the squares.
+            strokeOpacity: 0.1, // Make the borders half transparent.
+            strokeWidth: 1      // ...and two pixels thick.
+            }
+        }
+       };
+       chart.draw(dataTable, options);
+   }
+    window.onload=function(){
+        socket.emit('joinroom',usern)
+        socket.emit('loadNotification',usern);
+        socket.emit('loadContri',usern);
+        socket.on('outNotification',function(data){
+            console.log('showing...');
+            n=n+data.n;
+            for(var i=0;i<data.array.length;i++){
+                if(data.array[i].read==='false'){
+                    text='<li class="list-group-item" id="listNotify'+i+'">'+data.array[i].notify+'<button class="btn notifyTab btn-light float-right" id="readNotify'+i+'" style="border-radius:50%;" value="'+data.array[i]._id+'"><i class="fas fa-check"></i></button></li>'
+                    document.getElementById('notification').innerHTML+=text
+                }
+            }
+            
+        console.log(n);
+        for (let p=0;p<n;p++){
+            count=n
+            document.getElementById('readNotify'+p).addEventListener('click',function(){
+                count--;
+                val=document.getElementById('readNotify'+p).value;
+                console.log('click'+p);
+                socket.emit('readnotification',val);
+                document.getElementById('listNotify'+p).style.display='none';
+                if(count!=0){
+                    document.getElementById('taskh3').innerHTML='Notification  <span class="badge badge-pill badge-danger" >'+count+'</span>'
+                }
+                else{
+                    document.getElementById('taskh3').innerHTML='Notifications'
+  
+                }
+            })
+        }
+
+        })
+    socket.on('contrivalue',function(data){
+        n=n+data
+        console.log(n);
+        if(n!=0){
+                document.getElementById('taskh3').innerHTML='Notification  <span class="badge badge-pill badge-danger" >'+n+'</span>'
+            }
+            
+
+    })
+    console.log(n);
+    url=window.location.href;
+    if(url.includes('visit')){
+        document.getElementById('home').href='javascript:history.back()'
+        user=window.location.href;
+        user=user.split('/');
+        userVisit=user[user.length-1];
+        name=user[user.length-2];
+        a=document.getElementById('new').value.split(',');
+        document.getElementById('home').href='/home/'+name;
+        socket.emit('check',{user:userVisit});
+        socket.on('return',function(data){
+        console.log(data,name);
+        document.getElementById('followers').innerHTML=data.details.followers.length;
+        document.getElementById('followings').innerHTML=data.details.following.length;
+        if(data.details.followers.includes(name)){
+        document.getElementById('new').disabled=true;
+        document.getElementById('new').innerHTML='Following ✔'
+        }
+        if(data.details.Desc==null){
+            document.getElementById('desc').innerHTML='Write something about yourself'
+        }
+        else{
+            document.getElementById('desc').innerHTML=data.details.Desc
+        }
+
+        
+    })
+    document.getElementById('new').addEventListener('click',function(e){
+        e.preventDefault();
+        a=document.getElementById('new').value.split(',');
+        user=a[0];
+        name=a[1];
+        socket.emit('follow',{user:user,name:name});
+        document.getElementById('pop1').innerHTML+=' You started following  '+name;
+        followers=document.getElementById('followers').innerHTML
+        followers=parseInt(followers);
+        document.getElementById('followers').innerHTML=followers+1;
+        document.getElementById('new').disabled=true;
+        document.getElementById('new').innerHTML='Following ✔'
+        $('#pop1').fadeIn(1000);
+            setTimeout(function(){
+            $('#pop1').fadeOut(1000);
+            },5000);
+
+    })
+}
+else{
+    socket.emit('check',{user:usern});
+
+    socket.on('return',function(data){
+        console.log(data);
+        document.getElementById('followers').innerHTML=data.details.followers.length;
+        document.getElementById('followings').innerHTML=data.details.following.length;
+        if(data.details.Desc==null){
+            document.getElementById('desc').innerHTML='Write something about yourself'
+        }
+        else{
+            document.getElementById('desc').innerHTML=data.details.Desc
+        }
+    })
+
+}   console.log(lenView);
+    for(let k=0;k<lenView;k++){
+        document.getElementById('view'+k).addEventListener('click',function(){
+            console.log('click');
+            var cont=document.getElementById('idea'+k).innerHTML;
+            cont=String(cont);
+            CKEDITOR.config.allowedContent=true;
+            CKEDITOR.instances["FormControlTextarea"+k].setData((cont));
+            if(document.getElementById('view'+k).innerHTML==='view'){
+                $('#form'+k).show();
+                document.getElementById('view'+k).innerHTML="hide"
+            }
+            else{
+                $('#form'+k).hide();
+                document.getElementById('view'+k).innerHTML="view"
+
+            }
+        })
+        document.getElementById('acc'+k).addEventListener('click',function(e){
+            e.preventDefault();
+            head=document.getElementById('inputSugg'+k).value;
+            content=CKEDITOR.instances["FormControlTextarea"+k].getData();
+            a=document.getElementById('acc'+k).value.split(',')
+            id=a[0];
+            name=a[1];
+            num=a[2];
+            num=parseInt(num);
+            console.log(a);
+            socket.emit('acceptance',{heading:head,content:content,id:id,user:name,num:num});
+            $('#pop').fadeIn(1000);
+            setTimeout(function(){
+            $('#pop').fadeOut(1000);
+            },5000);
+            socket.emit('notifyUser',{user:usern,name:name,status:'accept'})
+            socket.emit('acceptNotify',{username:name,noti:'Your content got accepted by '+usern});
+            setTimeout(function(){location.reload()},5500);
+            
+        })
+        document.getElementById('dec'+k).addEventListener('click',function(e){
+            e.preventDefault();
+            
+            console.log("clicked dec");
+            content=CKEDITOR.instances["FormControlTextarea"+k].getData();
+            a=document.getElementById('acc'+k).value.split(',')
+            id=a[0];
+            name=a[1]; 
+            num=a[2];
+            num=parseInt(num);   
+            socket.emit('notifyUser',{user:usern,name:name,status:'reject'})        
+            socket.emit('decline-idea',{content:content,id:id,user:name,num:num});
+            socket.emit('decNotify',{username:name,noti:'Your content got rejected by '+usern})
+            setTimeout(function(){location.reload()},800);
+
+
+        })
+    }
+    for(let j=0; j<lenCont;j++){
+        document.getElementById('btn'+j).addEventListener('click',function(){
+        if(document.getElementById('cont'+j).style.display==='none'){
+            $('#cont'+j).show();
+            document.getElementById('btn'+j).innerHTML='Hide';
+        }
+        else{
+            $('#cont'+j).hide();
+            document.getElementById('btn'+j).innerHTML='Make Contribution';
+
+        }
+        })
+        //
+        document.getElementById('subCont'+j).addEventListener('click',function(e){
+            e.preventDefault();
+            // cont=CKEDITOR.instances["exampleFormControlTextarea"+j].getData();
+            head=document.getElementById('headSug'+j).value;
+            console.log(head);
+            cont=document.getElementById("exampleFormControlTextarea"+j).value
+            a=document.getElementById('subCont'+j).value.split(",");
+            id=a[0];
+            num=parseInt(a[1])+1;
+            admin=document.getElementById('admin'+j).innerHTML.slice(2);
+            socket.emit('contribute',{head:head,content:cont,auth:usern,project:id,num:num});
+                $('#pop').fadeIn(1000);
+            setTimeout(function(){
+                $('#pop').fadeOut(1000)
+            },5000)
+            setTimeout(function(){location.reload()},5500);
+            socket.emit('contriNotify',{pid:id})    
+        })
+        document.getElementById('leavebut'+j).addEventListener('click',function(e){
+            e.preventDefault();
+            // console.log(document.getElementById('leavebut'+j).value);
+            id=document.getElementById('leavebut'+j).value
+            socket.emit('leave',{pid:id,user:usern})
+            location.reload();
+        })
+    }
+    ///admin
+    for(let p=0;p<lenAdminCont;p++){
+        document.getElementById('adminbtn'+p).addEventListener('click',function(){
+        if(document.getElementById('admincont'+p).style.display==='none'){
+            $('#admincont'+p).show();
+            document.getElementById('adminbtn'+p).innerHTML='Hide';
+        }
+        else{
+            $('#admincont'+p).hide();
+            document.getElementById('adminbtn'+p).innerHTML='Edit Project';
+        }
+        })
+        //
+        document.getElementById('subAdminCont'+p).addEventListener('click',function(e){
+            e.preventDefault();
+            cont=CKEDITOR.instances["adminFormControlTextarea"+p].getData();
+            head=document.getElementById('inputadmin'+p).value;
+            a=document.getElementById('subAdminCont'+p).value.split(",");
+            id=a[0];
+            num=parseInt(a[1])+1;
+            admin=document.getElementById('admin'+p).innerHTML.slice(2);
+            
+                socket.emit('change',{heading:head,content:cont,project:id,num:num,name:usern});
+                $('#pop').fadeIn(1000);
+            setTimeout(function(){
+                $('#pop').fadeOut(1000);
+            },5000)
+            setTimeout(function(){location.reload()},5500);
+        })
+    }
+}
+        socket.on('notify',function(data){
+            console.log(data);
+                    notifyTag='<li class="list-group-item">'+data+'</li>'
+                    badge='Notification <span class="badge badge-danger">!!!</span>'
+                    document.getElementById('notification').innerHTML+=notifyTag;
+                    document.getElementById('taskh3').innerHTML=badge;   
+                    location.reload()
+            })
+            socket.on('refreshnoti',function(data){
+                console.log(data);
+                msg='<h3 style="color:grey;text-align:center">Refresh the page You might have some ideas for your project.</h3>'
+                badge='Notification <span class="badge badge-danger">!!!</span>'
+                document.getElementById('taskh3').innerHTML=badge; 
+                document.getElementById('notification').innerHTML=msg;
+                location.reload()
+
+            })
+    document.getElementById('editprofilebut').addEventListener('click',function(e){
+        e.preventDefault();
+        desc=document.getElementById('description').value;
+        socket.emit('profileEdit',{name:usern,desc:desc});
+        location.reload();
+    })
+   
+    $('#newProject').click(function(){
+        $('#createProject').show();
+        $('#profileDetails').hide();
+    })
+    $('#task2').click(function(){
+        $('.Task2').show();
+        $('#taskh2').css("font-weight","300");
+        $('.Task1').hide();
+        $('.Task3').hide();
+        $('.Task4').hide();
+
+    })
+    $('#task3').click(function(){
+        $('.Task3').show();
+        $('#taskh3').css("font-weight","300");
+
+        $('.Task1').hide();
+        $('.Task2').hide();
+        $('.Task4').hide();
+
+    })
+    $('#task4').click(function(){
+        location.href = '/';
+    })
+    $('#task1').click(function(){
+        $('#createProject').hide();
+
+        $('.Task1').show();
+        $("#profileDetails").show();
+        $('#articleWrite').hide();
+        $(".Edit").hide();
+
+        $('#taskh1').css("font-weight","300");
+
+        $('.Task2').hide();
+        $('.Task3').hide();
+        $('.Task4').hide();
+
+    })
+    $('#editProfile').click(function(){
+        $('#createProject').hide();
+        $('.Edit').show();
+        $('.Task1').hide();
+        $("#profileDetails").hide();
+        $('#articleWrite').hide();
+        $('#taskh1').css("font-weight","300");
+        $('.Task2').hide();
+        $('.Task3').hide();
+        $('.Task4').hide();
+    })
+    $(document).ready(()=>{
+        user=window.location.href;
+
+        $('#myInput').on('keyup',()=>{
+            console.log($('#myInput').val());
+            
+            document.getElementById('res').innerHTML='';
+            myuser=user.slice('31');
+            document.getElementById('res').style.display='block'
+            document.getElementById('res').innerHTML='';
+            $.ajax({
+                url:'/users',
+                type:'GET',
+                dataType:'json',
+                success:(dat)=>{
+                    if($('#myInput').val()===undefined){
+                        document.getElementById('res').innerHTML='';
+                    }
+                    if($('#myInput').val()===''){
+                        document.getElementById('res').innerHTML='';
+                    }
+                    for(var j=0;j<dat.length;j++){
+                        if(dat[j].userName!=myuser){
+                            if(dat[j].userName.includes($('#myInput').val()) ){
+                        document.getElementById('res').innerHTML+='<a href="/visit/'+myuser+'/'+dat[j].userName+'">'+dat[j].userName+'</a>'
+                    }
+                        }
+                    }
+                }
+            })
+        })
+        if(user.includes('userpage')){
+            document.addEventListener('click',function(){
+                document.getElementById('res').innerHTML='';
+            })
+        }
+    })
+
+
+</script>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="icon" href="https://img.icons8.com/color/50/000000/innovation.png">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <style>
+        body{
+            background-color: #f4f6ff;
+        }
+        h2{
+            text-align: center;
+            margin: auto;
+            padding: 2rem;
+            
+        }
+        #maincontent{
+            width:60%;
+            margin-top: 3%;
+            background-color: white;
+            padding: 2rem;
+        }
+        input{
+            margin-top:1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .btn{
+            display: inline;
+            margin-top: 1.2rem;
+            margin-left: auto;
+        }
+        .details{
+            padding: 1.5rem;
+            border:solid #e0dede 0.1rem;
+            border-radius: 0.5rem;
+        }
+        .btn-light{
+            border:solid black 0.01rem;
+        }
+    </style>
+</head>
+<script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+
+<body>
+      
+    
+    <div class='container' id='maincontent'>
+        <a href="" id='userBack'>< Go back </a>
+        <p style="color:grey; text-align:right">Drag and change the order of the content</p>
+
+        <h2 id='title'>title</h2>
+        <%if(project.length==0){%>
+            <div class="container">
+                <h3 style="color:#e0dede; font-size:2.5rem; text-align: center;">You dont have any contribution here!!!</h3>
+                <a href='javascript:history.back()' style='display:block;text-align:center'> Start working</a>
+            </div>
+        <%}%>
+        <div class='all-slides'>
+        <%for(var i=0;i<project.length;i++){%>
+            <div id='details<%=i%>' class="details">
+                <input type="text" class='form-control head' id='head<%=i%>' value='<%=project[i].heading%>'>
+                <div class='container content' id='cont<%=i%>'></div>
+                <div id='contentDiv<%=i%>' style="display: none;">
+                    <textarea name="" class='form-control' id="content<%=i%>" cols="30" rows="10" value='<%=project[i].content%>' ></textarea> 
+                </div>
+                <button class='btn btn-light' style='margin-right: 1.2rem;' id='edit<%=i%>' value='<%=project[i]._id%>'>Edit</button>
+                <button class="btn btn-danger"  data-toggle="modal" data-target="#exampleModal<%=i%>">Delete</button> 
+            </div>
+        <%}%>
+    </div>
+    <!-- <%for(var i=0;i<project.length;i++){%> -->
+        <!-- <script>
+            CKEDITOR.replace( 'content<%=i%>' );
+        </script> -->
+    <!-- <%}%> -->
+
+
+
+        <a href="" id='save'><button class="btn btn-primary btn-block" id='subReport'>Save</button></a>
+    </div>
+    <%for(var i=0;i<project.length;i++){%>
+    <div class="modal fade" id="exampleModal<%=i%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Are you sure you want to delete this??
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" id='del<%=i%>'>Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%}%>
+
+</body>
+<script src = "/socket.io/socket.io.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+  integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+  crossorigin="anonymous"></script>
+<script>
+    var socket = io();
+    user=window.location.href;
+    pid=user.slice(30,54);
+    
+    $( function() {
+    $( ".all-slides" ).sortable();
+    $( ".all-slides" ).disableSelection();
+    console.log('done');
+  } );
+    len=document.getElementsByClassName('details').length;
+   
+        socket.emit('loadreport',pid);
+        socket.on('title-edit',function(data){
+        document.getElementById('save').href='/report/'+pid+'/true/'+data.admin;
+
+        document.getElementById('userBack').href='/userpage/'+data.admin;
+
+        document.getElementById('title').innerHTML=data.title;
+
+        })
+    socket.on('loading',function(data){
+        
+        for(let i=0;i<len;i++){
+            document.getElementById('cont'+i).innerHTML+=data[i].content
+            document.getElementById('head'+i).valu=data[i].head
+        document.getElementById('del'+i).addEventListener('click',function(){
+            id=document.getElementById('edit'+i).value;
+            socket.emit('delete',{id:id,pid:pid});
+            document.getElementById('details'+i).remove();
+
+        })
+        document.getElementById('edit'+i).addEventListener('click',function(){
+            if(document.getElementById('edit'+i).innerHTML==='Edit'){
+            document.getElementById('contentDiv'+i).style.display='block';
+            document.getElementById('cont'+i).style.display='none';
+            changeContent=document.getElementById('cont'+i).innerHTML
+            // CKEDITOR.instances["content"+i].setData((data[i].content));
+            document.getElementById('content'+i).value=data[i].content;
+            document.getElementById('edit'+i).innerHTML='Submit';
+            }
+            else{
+                head=document.getElementById('head'+i).value;
+                cont=document.getElementById('content'+i).value;
+                id=document.getElementById('edit'+i).value;
+                socket.emit('edit-report',{id:id,content:cont,heading:head});
+                location.reload();
+            }
+
+
+        })
+    }       
+    })
+   
+    document.getElementById('subReport').addEventListener('click',function(){
+        obj={
+        idacc:[]
+    }
+        len=document.getElementsByClassName('content').length
+        for(var i=0;i<len;i++){
+
+            // obj.head.push(document.getElementsByClassName('head')[i].value);
+            // obj.content.push(document.getElementsByClassName('content')[i].innerHTML);
+            obj.idacc.push(document.getElementsByClassName('btn-light')[i].value);
+        }
+        console.log(obj);
+        socket.emit('sendData',{obj:obj,id:pid})
+    })
+    
+    
+    
+</script>
+</html>

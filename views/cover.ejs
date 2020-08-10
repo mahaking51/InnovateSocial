@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>InnovateSocial</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates|Ubuntu&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://img.icons8.com/color/50/000000/innovation.png">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/4298b3fd63.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</head>
+<style>
+  body{
+    color:#fff;
+  }
+  #title{
+    background-color:#363636;
+  }
+  h1{
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size:3rem;
+    line-height: 1.5;
+    font-weight: 900;
+  }
+  h2{
+    font-weight: 900;
+    font-family: 'Montserrat Alternates', sans-serif;
+  
+  }
+  small{
+    color:black; 
+  }
+  #features{
+    position:relative;
+    background-color: #fff;
+    z-index:2;
+  }
+  h3{
+    color:black;
+    font-family: 'Montserrat Alternates',sans-serif;
+  }
+  .container-fluid{
+    padding:3% 15%;
+  
+  
+  }
+  .navbar{
+    padding-left: 0;
+    padding-bottom: 5%;
+  }
+  .nav-item{
+    padding:0 18px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.15rem;
+  }
+  .navbar-brand{
+    font-size:1.75rem;
+    font-family: 'Ubuntu', sans-serif;
+  }
+  .download-btn{
+    margin-right: 20px;
+  
+  }
+  .iphone-img{
+    width:60%;
+    margin-left: 20%;
+    transform: rotate(15deg);
+    position:relative;
+    z-index: 0;
+  
+  }
+  .menu{
+   text-align: center;
+   font-size: 3rem;
+   font-weight: 600;
+   padding: 0 0 0 3rem;
+  
+  }
+  p{
+    color:#8f8f8f;
+    font-size: 1.3rem;
+  
+  }
+  a {
+  color: inherit;
+  text-decoration: inherit;
+}
+a:hover{
+  color: inherit;
+  text-decoration: inherit;
+}
+  .icon{
+    color:#8f8f8f;
+  }
+  .icon:hover{
+    color:black;
+  
+  }
+  #testimonials{
+    text-align: center;
+   background-color: #e4e3e3;
+   color: black;
+  }
+  .testimonial-image{
+    width:15%;
+    border-radius: 100%;
+    margin:30px 20px;
+  
+  }
+  
+  .carousel-item{
+    padding:7% 12%;
+  }
+  #press{
+    background-color: #e4e3e3;
+    text-align: center;
+  }
+  #features{
+    margin-top: 1.2rem;
+    padding: 1.8rem;
+    margin-bottom:1.2rem ;
+  }
+  .press-image{
+  
+    margin:25px 20px 30px;
+    padding-bottom: 20px;
+  }
+  #pricing{
+    margin:50px;
+    padding: 3% 15%;
+  }
+  #cta{
+    background-color: #363636;
+    color:white;
+    text-align: center;
+    padding:100px;
+  }
+  #footer{
+    color:black;
+    text-align: center;
+  
+  }
+  .con{
+    padding:60px 8px 20px;;
+  }
+  @media (max-width:991px){
+    .title-head{
+      text-align: center;
+      padding-bottom: 5%;
+    }
+    h1{
+      padding-bottom: 10%;
+    }
+    .iphone-img{
+      transform: rotate(0);
+      position: static;
+    }
+  }
+  
+</style>
+<body>
+
+  <section id="title">
+
+    <div class="container-fluid">
+
+
+
+      <nav class="navbar navbar-expand-lg navbar-dark ">
+        <a class="navbar-brand" href="#">InnovateSocial</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#footer">Contact<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#features">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#pricing">How it works</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/signin/true">Sign In</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+
+
+      <!-- Title -->
+      <div class="row" >
+        <div class="col-lg-6">
+          <div class='title-head'>
+            <h1>Explore Innovate and Inspire</h1>
+            <p>InnovateSocial helps innovative minds solve their important technology, science, business, AI and data challenges by connecting them with a global network of expert problem solvers.</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div>
+            <form style='background-color: white; padding: 1.2rem;padding-bottom: 1.5rem; border-radius: 0.25rem;' method='post' action='/'>
+                <div class="row" style="margin-top: 1 rem; margin-bottom: 1rem;">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="First name" name='fname' autocomplete="off" required>
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="Last name" name='lname' autocomplete="off" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1" style='color: black;'>Username</label>
+                    <input type="text" class="form-control" id="inputEmail" name='userName' autocomplete="off" required>
+                  </div>
+                  <div class="container" id='suggestions' style="color:black; font-size:15px; margin: 1.2rem; ;"></div>
+
+                <div class="form-group">
+                  <label for="exampleInputEmail1" style='color: black;'>Email address</label>
+                  <input type="email" class="form-control" id="inputEmailId" name='email' aria-describedby="emailHelp" autocomplete="off" required>
+                </div>
+                <div class="container" id='emailCond' style="color:black; font-size:15px; margin: 1.2rem; ;"></div>
+
+                <div class="form-group">
+                  <label for="exampleInputPassword1" style='color: black;'>Password</label>
+                  <input type="password" class="form-control" id="inputPassword" name="password" autocomplete="off" required>
+                  <small >Make sure it's </small><small id='numberChar'>atleast 6 characters</small><small> with </small>  <small id='lowerChar'>a lowercase letter </small><small>, </small><small id='upperChar'>a Uppercase letter </small> <small>and </small>  <small id='numbers'>three numbers</small>
+                </div>
+                <div class="form-group form-check">
+                </div>
+                <button type="submit" id='submitbut'class=" btn btn-success btn-lg btn-block" style="margin-top: 1rem;">SignUp </button>
+              </form>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </section>
+
+
+  <!-- Features -->
+
+  <section id="features">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6 menu">
+          <i class="fas fa-rocket icon" ></i>
+          <h3>Launch</h3>
+          <p>Struggling to find innovative breakthroughs? Need fresh external thinking and insights? Have InnoCentive design and launch your Challenge to our network – and receive proposed solutions and working prototypes more quickly than you do today.</p>
+        </div>
+        <div class="col-lg-6 menu ">
+          <i class="fas fa-brain icon"></i>
+          <h3>Solve</h3>
+          <p>If your mind sees solutions everywhere, challenge yourself to change the world. Work to solve important problems and the professional recognition you richly deserve.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Testimonials -->
+
+  <section id="testimonials">
+
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleControls" data-slide-to="1"></li>
+        <li data-target="#carouselExampleControls" data-slide-to="2"></li>
+        <li data-target="#carouselExampleControls" data-slide-to="3"></li>
+        <li data-target="#carouselExampleControls" data-slide-to="4"></li>
+
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active" >
+          <h2 style="color: black;">Launch and Contribute to Real Life problems</h2>
+          <p class='desc'>Want to change the world? or Want to make an impact with your innovative ideas? Be a part of our innovative environment </p>
+        </div>
+        
+        <div class="carousel-item">
+          <h2 class="testimonial-text">Join with people who work on the project</h2>
+          <p class="desc">Whoever keeps company with the wise becomes wise, but the companion of fools suffers harm.Get into the company of curious learners and scholars</p>
+        </div>
+        <div class="carousel-item">
+          <h2 class="testimonial-text">Have real time Chats with your Teammates.</h2>
+          <p class='desc'>Dont have to get to another chatting platform when you can chat and discuss stuffs right here!!!</p>
+        </div>
+        <div class="carousel-item">
+          <h2 class="testimonial-text">Download reports of your Projects</h2>
+          <p class="desc">Create and edit your project reports according to your needs and download it...</p>
+        </div>
+        <div class="carousel-item " >
+          <h2 style="color: black;">Complete or drop your project</h2>
+          <p class='desc'>If you are satisfied with the your work on the project then go ahead and mark your completion of the project.Or you feel that you cant work on this project anymore and have tried your best then feel free to drop the project and make it a resource for other user to take over the project and develop it.. </p>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </section>
+
+
+ 
+  
+  <!-- Pricing -->
+  <section id="pricing">
+
+    <h2 style='color: black; text-align: center; margin-bottom: 1.2rem;'>How It Works</h2>
+    <p style='color: black; text-align:center;'>Simple and Easy.</p>
+    <div class=" row">
+
+
+      <div class="col-lg-4 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3>Step 1</h3>
+          </div>
+          <div class="card-body">
+            <h2 style="color:black; "> Sign up</h2>
+            <p>Fill out your details</p>
+            <p>Register and get into the environment of problem solvers.</p>
+            <a href="/signup"><button type="button" class="btn btn-lg btn-block btn-outline-dark"><i class="fas fa-user-plus"></i> Sign up </button></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3>Step 2</h3>
+          </div>
+          <div class="card-body">
+            <h2 style="color:black; ">Join/Launch </h2>
+            <p>Create a project describing your challenge.</p>
+            <p>Join these projects</p>
+            <p>Get to know more about the project...</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-12">
+        <div class="card ">
+          <div class="card-header">
+            <h3>Step 3</h3>
+          </div>
+          <div class="card-body">
+            <h2 style="color:black; ">Contribute </h2>
+            <p>Contribute your ideas</p>
+            <p>Get access to chat with your teammates</p>
+            <p>Edit and download the project report.</p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+
+  <!-- Call to Action -->
+
+  <section id="cta">
+
+    <h3 style='color:white; margin-bottom:30px;font-weight:900;font-size:3rem;'>Get Innovative breakthroughs for your problems</h3>
+    <a href="/signup" title="SignUp"><button type="button" class="btn btn-outline-light btn-lg"><i class="fas fa-user-plus"></i> SignUp</button></a>
+
+  </section>
+
+
+  <!-- Footer -->
+
+  <footer id="footer">
+    <i class="fab fa-twitter con"></i><i class="fab fa-facebook-f con"></i><i class="fab fa-instagram con"></i><i class="fas fa-envelope con"></i>
+    <p style='font-size:13px;'>© Copyright 2019 InnovateSocial</p>
+
+  </footer>
+
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+  flagUsername=false;
+  flagEmail=false;
+  flagPwd=false;
+function suggestUsername(fn){
+    arr=["Arrow","Assassin","Avenger",
+"Blaze",
+"Bodhi",
+"Bolt",
+"Boss",
+"Captain",
+"Crimson",
+"Cyborg",
+"Dark",
+"Death",
+"Demon",
+"Destruction",
+"Doom",
+"Doctor",
+"Dragon",
+"Enigma",
+"Fallen",
+"Fate",
+"Flame",
+"Frozen",
+"Ghost",
+"Great",
+"Infinite",
+"Immortal",
+"Killer",
+"Knight",
+"Lightning",
+"Mist",
+"Micro",
+"Neo",
+"Nightmare",
+"Ninja",
+"Outlaw",
+"Prime",
+"Realm",
+"Seeker",
+"Shadow",
+"Silver",
+"Sinister",
+"Slayer",
+"Sniper",
+"Trinity",
+"Zephyr"]
+s1=(fn+Math.round(Math.random()*1000));
+s2=(fn+arr[Math.round(Math.random()*45)]);
+if(s1.length<8){
+  s1=s1+arr[Math.round(Math.random()*45)];
+}
+if(s2.length<8){
+  s2=s2+Math.round(Math.random()*1000)+arr[Math.round(Math.random()*45)];
+}
+    return [s1,s2];
+  }
+  document.getElementById('inputEmail').addEventListener('keyup',getData);
+  function getData(){
+    const xhr=new XMLHttpRequest();
+    xhr.open('GET','/users');
+    xhr.responseType='json';
+    xhr.onload=()=>{
+      const data=xhr.response;
+      let l
+            found=true
+            if(typeof(data)==undefined){
+                data=[];
+            }
+            if(data.length==0){
+                l=1
+            }
+            suggest=suggestUsername($('#inputEmail').val())
+            if(data.length<=0){
+              if( $('#inputEmail').val().length<8){
+                flagUsername=false;
+                $('#inputEmail').css('background-color','#f3dfe3');
+                  $('#suggestions').html('Username shd atleast have 8 characters...<br> Some Suggestions: '+suggest)     
+               }
+                  else{
+                    flagUsername=true
+                    $('#inputEmail').css('background-color','#b7efcd');
+                  $('#suggestions').html('Username available')
+                  }
+            }
+            
+              for (var i=0;i<data.length;i++){
+                if( $('#inputEmail').val().length<8){
+                  flagUsername=false;
+
+                  $('#inputEmail').css('background-color','#f3dfe3');
+                  $('#suggestions').html('Username shd atleast have 8 characters...<br> Some Suggestions: '+suggest)
+                  break;
+                }
+                if(data[i].userName===$('#inputEmail').val().split(" ").join('') ){
+                  flag=false;
+                  flagUsername=false;
+
+                  $('#inputEmail').css('background-color','#f3dfe3');
+                  $('#suggestions').html('Username already taken <br>Some Suggestions: '+suggest)
+                  break;
+                }
+                else{
+                  flagUsername=true
+
+                  $('#inputEmail').css('background-color','#b7efcd');
+                  $('#suggestions').html('Username available')
+                }
+              } 
+              if(flagUsername && flagEmail && flagPwd){
+      $( "#submitbut" ).prop( "disabled", false );
+    }
+    else{
+      $( "#submitbut" ).prop( "disabled", true );
+    }
+
+                  
+    }
+    xhr.send();
+  }
+  document.getElementById('inputPassword').addEventListener('keyup',function(){
+    countNumbers=0
+    countLowerChar=0
+    countUpperChar=0
+    pwd=document.getElementById('inputPassword').value;
+    if(pwd.length<=6){
+      document.getElementById('numberChar').style.color='red';
+      
+    }
+    else{
+      document.getElementById('numberChar').style.color='black';
+    }
+    for(i=0;i<pwd.length;i++){
+      if(pwd.charCodeAt(i)>=48 && pwd.charCodeAt(i)<58){
+        countNumbers++;
+      }
+      if(pwd.charCodeAt(i)>=97 && pwd.charCodeAt(i)<122){
+        countLowerChar++
+      }
+      if(pwd.charCodeAt(i)>=65 && pwd.charCodeAt(i)<91){
+        countUpperChar++
+      }
+    }    
+    if(countNumbers<3){
+      document.getElementById('numbers').style.color='red';
+    }
+    else{
+      document.getElementById('numbers').style.color='black';
+    }
+    if(countLowerChar==0){
+      document.getElementById('lowerChar').style.color='red';
+    }
+    else{
+      document.getElementById('lowerChar').style.color='black';
+    }
+    if(countUpperChar==0){
+      document.getElementById('upperChar').style.color='red';
+    }
+    else{
+      document.getElementById('upperChar').style.color='black';
+    }
+    if(countLowerChar!=0 && countUpperChar!=0 && countNumbers>=3 && pwd.length>6){
+      flagPwd=true;
+      $('#inputPassword').css('background-color','#b7efcd');
+
+      console.log(true);
+    }
+    else{
+      flagPwd=false;
+      $('#inputPassword').css('background-color','#f3dfe3');
+
+      console.log(false);
+
+    }
+    if(flagUsername && flagEmail && flagPwd){
+      $( "#submitbut" ).prop( "disabled", false );
+    }
+    else{
+      $( "#submitbut" ).prop( "disabled", true );
+
+    }
+  })
+  $(document).ready(()=>{
+    $('#inputEmailId').on('keyup',()=>{
+      document.getElementById('emailCond').innerHTML="";
+      $.ajax({
+        url:'/users',
+        type:'GET',
+        dataType:'json',
+        success:(dat1)=>{
+            $('#emailCond').html('')
+        for(var i=0;i<dat1.length;i++){
+          if(dat1[i].email===$('#inputEmailId').val()){
+            flagEmail=false;
+            $('#inputEmailId').css('background-color','#f3dfe3');
+            $('#emailCond').html('Email is already in Use!!!')
+
+            break;
+          }
+        else{
+          flagEmail=true;
+            $('#inputEmailId').css('background-color','#b7efcd');
+          }
+        }
+        if(flagUsername && flagEmail && flagPwd){
+      $( "#submitbut" ).prop( "disabled", false );
+    }
+    else{
+      $( "#submitbut" ).prop( "disabled", true );
+
+    }
+
+        }
+      })
+    })
+    
+  })
+</script>
+
+</html>

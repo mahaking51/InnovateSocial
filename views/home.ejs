@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://img.icons8.com/color/50/000000/innovation.png">
+
+    <title>InnovateSocial</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <!-- <link href="sticky-footer-navbar.css" rel="stylesheet"> -->
+    <style>
+        #stories{
+            border: solid 0.02rem;
+            padding: 2%;
+            border-color: #dbdbdb;
+            border-radius: 0.35rem;
+            width:70%;
+            background-color: white;
+        }
+        #dp{
+            margin-right: 8rem;
+            margin-left:8rem;
+        }
+        a, a:hover, a:focus, a:active{
+          text-decoration: none;
+          color:black;
+        }
+        #time{
+          text-align: right;
+          margin-left: 3rem;
+          color:#888888;
+
+        }
+        #searchStory{
+          width:300px;
+        }
+        #searchBox{
+          width:300px;
+          position: absolute;
+          margin-left: 63.2%;;
+          margin-top: 4rem;;
+          background-color: white;
+          z-index: 5;
+          padding: 1rem;
+        }
+        .navbar{
+          z-index:1;
+        }
+        .hover_bkgr_fricc{
+    background:rgba(0,0,0,.4);
+    cursor:pointer;
+    display:none;
+    height:100%;
+    position:fixed;
+    text-align:center;
+    top:0;
+    width:100%;
+    z-index:10000;
+}
+.hover_bkgr_fricc .helper{
+    display:inline-block;
+    height:100%;
+    vertical-align:middle;
+}
+.hover_bkgr_fricc > div {
+    background-color: #fff;
+    box-shadow: 10px 10px 60px #555;
+    display: inline-block;
+    height: auto;
+    max-width: 551px;
+    min-height: 100px;
+    vertical-align: middle;
+    width: 60%;
+    position: relative;
+    border-radius: 8px;
+    padding: 15px 5%;
+}
+.popupCloseButton {
+    background-color: #fff;
+    border: 3px solid #999;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: arial;
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 25px;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+.popupCloseButton:hover {
+    background-color: #ccc;
+}
+.trigger_popup_fricc {
+    cursor: pointer;
+    font-size: 20px;
+    margin: 20px;
+    display: inline-block;
+    font-weight: bold;
+}
+.nav-item{
+  cursor: pointer;
+}
+body{
+  background-color: #f9f9f9;
+}
+
+
+    </style>
+  </head>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+  <body >
+
+  <div class="hover_bkgr_fricc">
+      <span class="helper"></span>
+      <div>
+          <div class="popupCloseButton">&times;</div>
+          <h1>You're In!!!</h1>
+          <div class='container' id='joinReport'></div>
+      </div>
+  </div>
+    <header>
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="" style='margin-left: 2rem;'><img src="https://img.icons8.com/dusk/50/000000/innovation.png"/> InnovateSocial</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <a href="/dropped/<%=name%>" id='dropped'><li class="nav-item active" style="margin-left:2rem;margin-right:1.2rem; color:white" id='drop'>Dropped </li></a>
+            <a href="/complete/<%=name%>"><li class="nav-item active" style="margin-right:2rem; color:white" id='complete'>Complete</li></a>
+
+
+          </ul>
+          <ul class="navbar-nav ml-auto">
+                <form class="form-inline mt-2 mt-md-0" >
+                    <input class="form-control mr-sm-2 dropdown-toggle" type="text" id='searchStory' placeholder="🔍Search for projects" aria-label="Search" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  </form>
+              
+            <a href="<%=link%>"><img src=" <%=dp%> " alt="" srcset="" id='dp'></a>
+            
+        </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- Begin page content -->
+    
+    <div class="container" id='mainContent'>
+      <% for(var i=0;i<projects.length;i++){ %>
+        <%if(i==0){%>
+    <div class="container" id='stories' style="margin-top: 10%;">
+        <div class="container" >
+          <a href='/visit/mahaking'><img src="https://ui-avatars.com/api/?name= mahaking &rounded=true&bold=true&size=40&background=ededed&color=272727" alt="" id='userPic' style='display: inline;'> </a>
+            <p  style='display: inline; margin-left: 2rem;'><h4 style='display:inline'><%=projects[i].admin%></h4>- <a href='/visit/<%=projects[i].admin%>'>tp1</a></p>
+        </div>
+        <hr>
+        <div class="container" id='story'>
+            <%=projects[i].content%>
+        </div>
+        <hr>
+        <p style='display: inline;  font-size:1.5rem;'>👍</p><button class='btn btn-primary float-right'>Join the Project</button>
+    </div>
+    <%}%>
+    <%if(i!=0){%>
+        <div class="container" id='stories' style="margin-top: 1.5rem;">
+            <div class="container" >
+              <a href='/visit/mahaking'><img src="https://ui-avatars.com/api/?name=mahaking &rounded=true&bold=true&size=40&background=ededed&color=272727" alt="" id='userPic' style='display: inline;'> </a>
+                <p  style='display: inline; margin-left: 2rem;'><h4 style='display:inline'><%=projects[i].admin%></h4>- <a href='/visit/<%=projects[i].admin%>'>tp2</a></p>
+            </div>
+            <hr>
+            <div class="container" id="story">
+              <%=projects[i].content%>
+            </div>
+        </div>
+      <%}%>
+      <%}%>
+    </div>
+    <div id='completeProject' style="display: none;"> 
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+<script src = "/socket.io/socket.io.js"></script>
+
+<script>
+  count=0
+
+  let len;
+  var a=[];
+  
+  var socket = io();
+  user=window.location.href;
+  usern=user.slice(27);
+  console.log(usern);
+  $(document).ready(()=>{
+    document.getElementById('mainContent').innerHTML="";
+    socket.on('load',function(data){
+      console.log(data);
+      // if(data.length==0){
+      //   text='<h2>Go ahead and create the first project </h2>'
+      // }
+      for(var i=data.length-1;i>=0;i--){
+          if(usern===data[i].admin){
+            join='';
+            link='/userpage/'+usern;
+            linkProject='/report/'+data[i].id+'/true/'+usern;
+          }
+          else if(data[i].members.includes(usern)){
+            join="<button class='btn btn-primary float-right joined' value='"+data[i].id+"'id='join"+i+"' disabled >Joined</button>";
+            link='/visit/'+usern+'/'+data[i].admin;
+            linkProject='/report/'+data[i].id+'/false/'+usern;
+            a.push(i);
+          }
+          else{
+            join="<form action='' method='post'>\
+                  <button class='btn btn-primary float-right joined' value='"+data[i].id+"'id='join"+i+"'>Join the Project</button></form>";
+                  a.push(i);
+                  link='/visit/'+usern+'/'+data[i].admin;
+                  linkProject='/report/'+data[i].id+'/false/'+usern;
+
+          }
+          if(data[i].likes.includes(usern)){
+            button="<button class='like btn btn-danger' id='sendBtn"+i+"' value="+data[i].id+" disabled >Liked</button>"
+          }
+          else{
+            button="<button class='like btn btn-danger' id='sendBtn"+i+"' value="+data[i].id+">Like</button>"
+          }
+          if(i==(data.length-1)){
+          text="<div class='container' id='stories' style='margin-top: 10%;'>\
+        <div class='container' >\
+          <a href='"+link+"'><img src='https://ui-avatars.com/api/?name= "+data[i].admin+" &rounded=true&bold=true&size=40&background=ededed&color=272727' alt='' id='userPic' style='display: inline;'> </a>\
+            <p  style='display: inline; margin-left: 2rem;'><a href='"+linkProject+"'><h4 style='display:inline'>"+data[i].title+"</h4></a> - <a href='"+link+"'>"+data[i].admin+"</a></p>\
+        </div>\
+        <hr>\
+        <div class='container' id='story'>\
+            "+data[i].content+"\
+        </div>\
+        <hr>\
+        <div class='container' id='"+data[i].id+"'>\
+          "+data[i].likes.length+" Likes</div>\
+        <form action='' method='post'>\
+    "+button+"</form>"+join+"\
+        </div>"
+        }
+        else{
+          text="<div class='container' id='stories' style='margin-top: 1.5rem;'>\
+        <div class='container' >\
+          <a href='"+link+"'><img src='https://ui-avatars.com/api/?name= "+data[i].admin+" &rounded=true&bold=true&size=40&background=ededed&color=272727' alt='' id='userPic' style='display: inline;'> </a>\
+            <p  style='display: inline; margin-left: 2rem;'><a href='"+linkProject+"'><h4 style='display:inline'>"+data[i].title+"</h4></a>- <a href='"+link+"'>"+data[i].admin+"</a></p>\
+        </div>\
+        <hr>\
+        <div class='container' id='story'>\
+          "+data[i].content+"\
+        </div>\
+        <hr>\
+        <div class='container' id='"+data[i].id+"'>\
+          "+data[i].likes.length+" Likes</div>\
+        <form action='' method='post'>\
+          "+button+"</form>"+join+"\
+        </div>"
+        }
+          document.getElementById('mainContent').innerHTML+=text;
+        }
+    })
+    
+  })
+  $(document).ready(()=>{
+    det=0;
+
+    $("#searchStory").on('keyup',()=>{
+      document.getElementById('mainContent').innerHTML="";
+      det++;
+      detect=0;
+    $.ajax({
+      url:'/projects',
+      type:'GET',
+      dataType:'json',
+      success:(data)=>{
+        like=[];
+        a=[];
+        for(var i=data.length-1;i>=0;i--){
+          if(data[i].complete==='progress'){
+            console.log(data[i].complete);
+          if(usern===data[i].admin){
+            join='';
+            link='/userpage/'+usern;
+            linkProject='/report/'+data[i].id+'/true/'+usern;
+
+          }
+          else if(data[i].members.includes(usern)){
+            join="<button class='btn btn-primary float-right joined' value='"+data[i].id+"'id='join"+i+"' disabled >Joined</button>";
+            link='/visit/'+usern+'/'+data[i].admin;
+            linkProject='/report/'+data[i].id+'/false/'+usern;
+
+          }
+          else{
+            join="<form action='' method='post'>\
+                  <button class='btn btn-primary float-right joined' value='"+data[i].id+"' id='join"+i+"'>Join the Project</button></form>";
+            link='/visit/'+usern+'/'+data[i].admin;
+            linkProject='/report/'+data[i].id+'/false/'+usern;
+            if(data[i].title.includes($("#searchStory").val()) || data[i].admin.includes($("#searchStory").val())){
+              a.push(i)
+            }
+          }
+          if(data[i].likes.includes(usern)){
+            button="<button class='liked btn btn-danger'  id='sendBtn"+i+"' value="+data[i].id+" disabled >Liked</button>"
+          }
+          else{
+            button="<button class='liked btn btn-danger'  id='sendBtn"+i+"' value="+data[i].id+">Like</button>"
+          }
+          if(data[i].complete==='dropped' || data[i].complete==='completed'){
+            join='';
+            
+          }
+          if(detect==0){
+          text="<div class='container' id='stories' style='margin-top: 10%;'>\
+        <div class='container' >\
+          <a href='"+link+"'><img src='https://ui-avatars.com/api/?name= "+data[i].admin+" &rounded=true&bold=true&size=40&background=ededed&color=272727' alt='' id='userPic' style='display: inline;'> </a>\
+            <p  style='display: inline; margin-left: 2rem;'><a href='"+linkProject+"'><h4 style='display:inline'>"+data[i].title+"</h4></a>- <a href='"+link+"'>"+data[i].admin+"</a></p>\
+        </div>\
+        <hr>\
+        <div class='container' id='story'>\
+          "+data[i].content+"\
+        </div>\
+        <hr>\
+        <div class='container' id='"+data[i].id+"'>\
+          "+data[i].likes.length+" Likes</div>\
+        <form action='' method='post'>\
+          "+button+"    </form>"+join+"\
+        </div>"
+        }
+        else{
+          text="<div class='container' id='stories' style='margin-top: 1.5rem;'>\
+        <div class='container' >\
+          <a href='"+link+"'><img src='https://ui-avatars.com/api/?name= "+data[i].admin+" &rounded=true&bold=true&size=40&background=ededed&color=272727' alt='' id='userPic' style='display: inline;'> </a>\
+            <p  style='display: inline; margin-left: 2rem;'><a href='"+linkProject+"'><h4 style='display:inline'>"+data[i].title+"</h4></a>- <a href='"+link+"'>"+data[i].admin+"</a></p>\
+        </div>\
+        <hr>\
+        <div class='container' id='story'>\
+          "+data[i].content+"\
+        </div>\
+        <hr>\
+        <div class='container' id='"+data[i].id+"'>\
+        "+data[i].likes.length+" Likes</div>\
+        <form action='' method='post'>\
+          "+button+"   </form>"+join+"\
+        </div>"
+        }
+        if(data[i].title.includes($("#searchStory").val()) || data[i].admin.includes($("#searchStory").val())){
+            document.getElementById('mainContent').innerHTML+=text;
+            like.push(i);
+
+            detect++;
+          } 
+        }       
+        }
+        if(document.getElementById('mainContent').innerHTML===""){
+          console.log('nothin');
+          document.getElementById('mainContent').innerHTML="<h1 style='margin-top: 10%;'>No results Found</h1>";
+        }
+      len=document.getElementsByClassName('liked').length;
+      console.log('len='+len);
+      lenTake=document.getElementsByClassName('take').length;
+      lenJoin=document.getElementsByClassName('joined').length;
+      console.log(a);
+      for(let j=0;j<like.length;j++){
+        document.getElementById('sendBtn'+like[j]).addEventListener('click',function(e){
+        e.preventDefault();
+        id=document.getElementById('sendBtn'+like[j]).value;
+        socket.emit('like',{name:usern,id:id});
+        document.getElementById('sendBtn'+like[j]).disabled=true;
+        document.getElementById('sendBtn'+like[j]).innerHTML='Liked'
+        like=document.getElementById(id).innerHTML.slice(2);
+        like=parseInt(like)+1;
+        document.getElementById(id).innerHTML=like+' Likes';
+      })
+      }
+      for(let k=0;k<a.length;k++){
+        document.getElementById('join'+a[k]).addEventListener('click',function(e){
+          e.preventDefault();
+          id=document.getElementById('join'+a[k]).value;
+          socket.emit('joining',{name:usern,id:id});
+          $('.hover_bkgr_fricc').show();
+          socket.on('members',function(data){
+            document.getElementById('joinReport').innerHTML='<h3>Members Part of the team:</h3><br>You<br>';
+            for( var i=0;i<data.memb.length;i++){
+              document.getElementById('joinReport').innerHTML+=data.memb[i]+'<br>'
+            }
+            document.getElementById('joinReport').innerHTML+='For more details check your dashboard'
+            document.getElementById('join'+a[k]).disabled=true;
+            document.getElementById('join'+a[k]).innerHTML='Joined '
+            console.log(data);
+            
+          })
+        })
+      }
+      for(let i=0;i<lenTake;i++){
+        document.getElementById('take'+i).addEventListener('click',function(e){
+          e.preventDefault();
+        })
+      }
+      }
+    })
+
+  })
+  
+  })
+    window.onload=function(){
+      len=document.getElementsByClassName('like').length;
+      console.log('len='+len);
+      lenTake=document.getElementsByClassName('take').length;
+      lenJoin=document.getElementsByClassName('joined').length;
+      console.log(a);
+      
+      for(let j=0;j<len;j++){
+        document.getElementById('sendBtn'+j).addEventListener('click',function(e){
+        e.preventDefault();
+        id=document.getElementById('sendBtn'+j).value;
+        socket.emit('like',{name:usern,id:id});
+        document.getElementById('sendBtn'+j).disabled=true;
+        document.getElementById('sendBtn'+j).innerHTML='Liked'
+        like=document.getElementById(id).innerHTML.slice(2);
+        like=parseInt(like)+1;
+        document.getElementById(id).innerHTML=like+' Likes';
+      })
+      }
+      for(let k=0;k<a.length;k++){
+        document.getElementById('join'+a[k]).addEventListener('click',function(e){
+          e.preventDefault();
+          id=document.getElementById('join'+a[k]).value;
+          socket.emit('joining',{name:usern,id:id});
+          $('.hover_bkgr_fricc').show();
+          socket.on('members',function(data){
+            document.getElementById('joinReport').innerHTML='<h3>Members Part of the team:</h3><br>You<br>';
+            for( var i=0;i<data.memb.length;i++){
+              document.getElementById('joinReport').innerHTML+=data.memb[i]+'<br>'
+            }
+            document.getElementById('joinReport').innerHTML+='For more details check your dashboard'
+            document.getElementById('join'+a[k]).disabled=true;
+            document.getElementById('join'+a[k]).innerHTML='Joined '
+            console.log(data);
+            
+          })
+        })
+      }
+      for(let i=0;i<lenTake;i++){
+        document.getElementById('take'+i).addEventListener('click',function(e){
+          e.preventDefault();
+        })
+      }
+      $('.hover_bkgr_fricc').click(function(){
+          $('.hover_bkgr_fricc').hide();
+      });
+      $('.popupCloseButton').click(function(){
+          $('.hover_bkgr_fricc').hide();
+      });
+  
+    }
+
+</script>
+</html>

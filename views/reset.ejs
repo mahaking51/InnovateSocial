@@ -1,0 +1,214 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.0.1">
+    <title>Change Password - InnovateSocial</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/sign-in/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="icon" href="https://img.icons8.com/color/50/000000/innovation.png">
+
+    <!-- Favicons -->
+<link rel="apple-touch-icon" href="/docs/4.5/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/4.5/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/4.5/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+<link rel="icon" href="/docs/4.5/assets/img/favicons/favicon.ico">
+<meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#563d7c">
+
+
+    <style>
+        html,
+body {
+  height: 100%;
+}
+
+body {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #f5f5f5;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
+  </head>
+  <body class="text-center">
+    <form class="form-signin" method='post' action='/reset'>
+      <img class="mb-4" src="https://img.icons8.com/color/120/000000/innovation.png" alt="" width="100" height="100">
+  <h1 class="h3 mb-3 font-weight-normal" id='head'>Change password for @</h1>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Password</label>
+    <input type="password" class="form-control" id="password"  name='password' required>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Confirm Password</label>
+    <input type="password" class="form-control" id="confirm"  name='confirm' required>
+  </div>
+  <div id='cond' style='color:red'>
+
+  </div>
+
+  <div style="margin-top:0.4rem; margin-bottom: 0.6rem;">
+    <small >Make sure it's </small><small id='numberChar'> atleast 6 characters</small><small>  with </small>  <small id='lowerChar'>a lowercase letter </small><small>, </small><small id='upperChar'>a Uppercase letter </small> <small>and </small>  <small id='numbers'>three numbers</small>
+
+  </div>
+
+  <button class="btn btn-lg btn-success btn-block" type="submit" name='submit'value="<%=id%>" id='submitbut' disabled>Change password</button>
+</form>
+</body>
+<script src = "/socket.io/socket.io.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+    var socket = io();
+    let id=document.getElementById('submitbut').value;
+    flagPwd=false;
+    socket.emit('userfind',id);
+    socket.on('founduser',function(data){
+        document.getElementById('head').innerHTML+=data
+    })
+    document.getElementById('password').addEventListener('keyup',function(){
+    countNumbers=0
+    countLowerChar=0
+    countUpperChar=0
+    pwd=document.getElementById('password').value;
+    if(pwd.length<=6){
+      document.getElementById('numberChar').style.color='red';
+    }
+    else{
+      document.getElementById('numberChar').style.color='black';
+
+    }
+    for(i=0;i<pwd.length;i++){
+      if(pwd.charCodeAt(i)>=48 && pwd.charCodeAt(i)<58){
+        countNumbers++;
+      }
+      if(pwd.charCodeAt(i)>=97 && pwd.charCodeAt(i)<122){
+        countLowerChar++
+      }
+      if(pwd.charCodeAt(i)>=65 && pwd.charCodeAt(i)<91){
+        countUpperChar++
+      }
+    }    
+    if(countNumbers<3){
+      document.getElementById('numbers').style.color='red';
+    }
+    else{
+      document.getElementById('numbers').style.color='black';
+    }
+    if(countLowerChar==0){
+      document.getElementById('lowerChar').style.color='red';
+    }
+    else{
+      document.getElementById('lowerChar').style.color='black';
+    }
+    if(countUpperChar==0){
+      document.getElementById('upperChar').style.color='red';
+    }
+    else{
+      document.getElementById('upperChar').style.color='black';
+ 
+    }
+    if(countLowerChar!=0 && countUpperChar!=0 && countNumbers>=3 && pwd.length>6){
+      console.log(true);
+      $('#password').css('background-color','#b7efcd');
+
+      flagPwd=true;
+
+    }
+    else{
+      console.log(false);
+      $('#password').css('background-color','#f3dfe3');
+
+      flagPwd=false;
+
+
+    }
+    if(flagPwd && flagConf){
+      $( "#submitbut" ).prop( "disabled", false );
+    }
+    else{
+      $( "#submitbut" ).prop( "disabled", true );
+    }
+  })
+flagConf=false;
+    document.getElementById('confirm').addEventListener('keyup',function(){
+        
+        if(document.getElementById('confirm').value!=document.getElementById('password').value){
+            document.getElementById('cond').innerHTML='Passwords dont match';
+            flagConf=false;
+
+        }
+        else{
+            document.getElementById('cond').innerHTML='';
+            flagConf=true;
+        }
+        if(flagPwd && flagConf){
+      $( "#submitbut" ).prop( "disabled", false );
+
+      }
+    else{
+      $( "#submitbut" ).prop( "disabled", true );
+
+    }
+    })
+
+</script>
+</html>
