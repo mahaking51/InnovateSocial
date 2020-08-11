@@ -3,7 +3,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 const bodyParser=require('body-parser');
 const mongoose=require('mongoose');
-mongoose.connect('mongodb+srv://admin-maha:1729maha@cluster0.a2q5h.mongodb.net/prodb', {useNewUrlParser: true})
+mongoose.connect('mongodb://localhost:27017/prodb', {useNewUrlParser: true})
 app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({extended:true}));
 var nodemailer = require('nodemailer');
