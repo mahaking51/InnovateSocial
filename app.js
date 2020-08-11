@@ -420,6 +420,7 @@ io.on('connection', function(socket) {
         })
     })
     socket.on('check',function(data){
+        console.log(data);
         User.findOne({username:data.user},function(err,obj){
             socket.emit('return',{details:obj});
         })
