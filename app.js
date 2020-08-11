@@ -3,7 +3,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 const bodyParser=require('body-parser');
 const mongoose=require('mongoose');
-mongoose.connect('mongodb://localhost:27017/prodb', {useNewUrlParser: true})
+mongoose.connect('mongodb+srv://admin-maha:1729maha@cluster0.a2q5h.mongodb.net/prodb', {useNewUrlParser: true})
 app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({extended:true}));
 var nodemailer = require('nodemailer');
@@ -420,7 +420,7 @@ io.on('connection', function(socket) {
         })
     })
     socket.on('check',function(data){
-        console.log(data);
+        console.log();
         User.findOne({username:data.user},function(err,obj){
             socket.emit('return',{details:obj});
         })
