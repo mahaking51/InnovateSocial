@@ -2,7 +2,7 @@
 
 InnovateSocial is a social networking site which helps innovative minds solve their important technology, science, business, AI and data challenges by connecting them with a global network of expert problem solvers.
 Here's a quick guide to teach you how to use it..
-
+Also hosted in heroku:https://mysterious-sea-03662.herokuapp.com/
 ## Prerequisite 
 
 * install NodeJS
